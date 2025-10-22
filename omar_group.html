@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omar Group — Modèle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b; /* deep black */
+      --white:#ffffff;
+      --muted:#bdbdbd; /* grey */
+      --gold:#c59d5f; /* luxurious gold */
+      --accent:#1f1f1f;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--white);}
+    a{color:var(--gold);text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,0.04);gap:12px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#111);display:flex;align-items:center;justify-content:center;font-family: 'Playfair Display', serif;font-size:18px;font-weight:700;color:var(--gold);box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--muted)}
+    nav a.active{color:var(--white);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+    .lang-switch{display:flex;gap:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;cursor:pointer;color:var(--muted)}
+
+    .container{max-width:1100px;margin:34px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:16px}
+    h1{font-family:'Playfair Display', serif;font-size:36px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{background:var(--gold);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
+
+    /* products */
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    .product{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+    .product img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .product .title{font-weight:700}
+    .product .price{color:var(--gold);font-weight:700}
+
+    /* product detail */
+    .product-detail{display:grid;grid-template-columns:420px 1fr;gap:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+
+    footer{padding:28px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:48px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .product-detail{grid-template-columns:1fr}
+      .logo{width:48px;height:48px}
+      h1{font-size:28px}
+    }
+
+    /* tiny touches */
+    .badge{background:rgba(0,0,0,0.35);padding:6px 8px;border-radius:8px;font-weight:600}
+
+    /* rtl adjustments when dir=rtl */
+    :root[dir="rtl"] nav ul{direction:rtl}
+
+    /* form */
+    .form-row{display:flex;gap:12px}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
+    label{display:block;margin-bottom:6px;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">OG</div>
+      <div>
+        <div style="font-weight:700;font-size:16px">Omar Group</div>
+        <div style="font-size:12px;color:var(--muted)">Luxury · Quality · Trust</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="navlink" data-key="nav_home">Accueil</a></li>
+        <li><a href="#about" class="navlink" data-key="nav_about">À propos</a></li>
+        <li><a href="#products" class="navlink" data-key="nav_products">Nos Produits</a></li>
+        <li><a href="#contact" class="navlink" data-key="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h1 data-key="home_title">Bienvenue chez Omar Group</h1>
+        <p class="lead" data-key="home_lead">Vente de produits authentiques — style luxueux, qualité garantie.</p>
+        <div class="cta">
+          <button class="btn" id="discoverBtn" data-key="home_cta">Découvrir</button>
+          <a class="btn secondary" href="#products" data-key="home_cta2">Voir les produits</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px">
+          <div style="font-weight:700;font-size:20px" data-key="hero_feature">Livraison rapide · Paiement sécurisé</div>
+          <div style="color:var(--muted);text-align:center" data-key="hero_sub">Profitez d'une expérience d'achat haut de gamme, où que vous soyez.</div>
+          <div style="width:100%;margin-top:12px;display:flex;gap:12px">
+            <img src="https://images.unsplash.com/photo-1526178612443-21ec2bbf6c7b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="placeholder" style="width:100%;height:160px;object-fit:cover;border-radius:10px">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:28px">
+      <div class="card">
+        <h2 data-key="about_title">À propos</h2>
+        <p data-key="about_text">Omar Group est spécialisé dans la vente de produits de qualité, choisis avec soin pour offrir une expérience premium à nos clients.</p>
+      </div>
+    </section>
+
+    <section id="products" style="margin-top:24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <h2 data-key="products_title">Nos Produits</h2>
+        <div class="badge" data-key="products_count">3 articles</div>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section id="product" style="margin-top:24px;display:none">
+      <div class="product-detail">
+        <div class="card" id="productImageWrap">
+          <img id="productImage" src="" alt="product image" style="width:100%;height:360px;object-fit:cover;border-radius:10px">
+        </div>
+        <div>
+          <div class="card">
+            <h3 id="productTitle"></h3>
+            <div id="productPrice" style="font-size:20px;font-weight:700;margin-bottom:12px;color:var(--gold)"></div>
+            <p id="productDesc" style="color:var(--muted)"></p>
+            <div style="margin-top:14px;display:flex;gap:12px">
+              <button class="btn" id="buyNow">Acheter</button>
+              <button class="btn secondary" id="backToProducts">Retour</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="checkout" style="margin-top:24px;display:none">
+      <div class="card">
+        <h2 data-key="checkout_title">Acheter le produit</h2>
+        <form id="checkoutForm">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label data-key="form_name">Nom complet</label>
+              <input type="text" id="custName" required>
+            </div>
+            <div>
+              <label data-key="form_email">E‑mail</label>
+              <input type="email" id="custEmail" required>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label data-key="form_address">Adresse</label>
+            <input id="custAddress" required>
+          </div>
+          <div style="margin-top:12px">
+            <label data-key="form_payment">Méthode de paiement</label>
+            <select id="paymentMethod">
+              <option>Carte bancaire</option>
+              <option>Paiement à la livraison</option>
+            </select>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:12px">
+            <button class="btn" type="submit" data-key="form_buy">Confirmer et payer</button>
+            <button class="btn secondary" type="button" id="cancelCheckout" data-key="form_cancel">Annuler</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:36px">
+      <div class="card">
+        <h3 data-key="contact_title">Contact</h3>
+        <p data-key="contact_text">Pour questions ou commandes : contact@omar-group.example</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Omar Group — Tous droits réservés.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Sample product data (for demo). Replace with your real products or connect to backend.
+    const PRODUCTS = [
+      {id:1,title:{fr:'Montre de Luxe',en:'Luxury Watch',ar:'ساعة فاخرة'},price:199,image:'https://images.unsplash.com/photo-1518544882441-1c3acf1c3b2b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder',desc:{fr:'Montre élégante, mouvement quartz.',en:'Elegant watch, quartz movement.',ar:'ساعة أنيقة، حركة كوارتز.'}},
+      {id:2,title:{fr:'Parfum Raffiné',en:'Refined Perfume',ar:'عطر راقٍ'},price:89,image:'https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder',desc:{fr:'Fragrance longue tenue.',en:'Long-lasting fragrance.',ar:'عطر يدوم طويلاً.'}},
+      {id:3,title:{fr:'Sac Cuir',en:'Leather Bag',ar:'حقيبة جلدية'},price:249,image:'https://images.unsplash.com/photo-1519741499214-8e9b5c3a1bde?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder',desc:{fr:'Sac en cuir pleine fleur.',en:'Full-grain leather bag.',ar:'حقيبة جلدية من أعلى جودة.'}}
+    ];
+
+    // i18n strings
+    const STRINGS = {
+      fr: {
+        nav_home:'Accueil',nav_about:'À propos',nav_products:'Nos Produits',nav_contact:'Contact',
+        home_title:'Bienvenue chez Omar Group',home_lead:'Vente de produits authentiques — style luxueux, qualité garantie.',home_cta:'Découvrir',home_cta2:'Voir les produits',
+        hero_feature:'Livraison rapide · Paiement sécurisé',hero_sub:"Profitez d'une expérience d'achat haut de gamme, où que vous soyez.",
+        about_title:'À propos',about_text:'Omar Group est spécialisé dans la vente de produits de qualité, choisis avec soin pour offrir une expérience premium à nos clients.',
+        products_title:'Nos Produits',products_count:PRODUCTS.length+' articles',
+        checkout_title:'Acheter le produit',form_name:'Nom complet',form_email:'E‑mail',form_address:'Adresse',form_payment:'Méthode de paiement',form_buy:'Confirmer et payer',form_cancel:'Annuler',
+        contact_title:'Contact',contact_text:'Pour questions ou commandes : contact@omar-group.example'
+      },
+      en: {
+        nav_home:'Home',nav_about:'About',nav_products:'Products',nav_contact:'Contact',
+        home_title:'Welcome to Omar Group',home_lead:'Selling authentic products — luxurious style, guaranteed quality.',home_cta:'Discover',home_cta2:'See products',
+        hero_feature:'Fast delivery · Secure payment',hero_sub:'Enjoy a premium shopping experience, wherever you are.',
+        about_title:'About',about_text:'Omar Group specializes in selling quality products selected to provide a premium experience to our customers.',
+        products_title:'Our Products',products_count:PRODUCTS.length+' items',
+        checkout_title:'Buy product',form_name:'Full name',form_email:'E‑mail',form_address:'Address',form_payment:'Payment method',form_buy:'Confirm & pay',form_cancel:'Cancel',
+        contact_title:'Contact',contact_text:'For inquiries or orders: contact@omar-group.example'
+      },
+      ar: {
+        nav_home:'الرئيسية',nav_about:'من نحن',nav_products:'منتجاتنا',nav_contact:'اتصل بنا',
+        home_title:'مرحبًا بكم في Omar Group',home_lead:'بيع منتجات أصلية — طابع فاخر وجودة مضمونة.',home_cta:'اكتشف',home_cta2:'عرض المنتجات',
+        hero_feature:'توصيل سريع · دفع آمن',hero_sub:'استمتع بتجربة تسوق فاخرة أينما كنت.',
+        about_title:'من نحن',about_text:'تختص Omar Group في بيع منتجات عالية الجودة مختارة بعناية لتقديم تجربة مميزة لعملائنا.',
+        products_title:'منتجاتنا',products_count:PRODUCTS.length+' عناصر',
+        checkout_title:'شراء المنتج',form_name:'الاسم الكامل',form_email:'البريد الإلكتروني',form_address:'العنوان',form_payment:'طريقة الدفع',form_buy:'تأكيد والدفع',form_cancel:'إلغاء',
+        contact_title:'اتصل بنا',contact_text:'للاستفسار أو الطلبات: contact@omar-group.example'
+      }
+    };
+
+    // Initialize
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const productsGrid = document.getElementById('productsGrid');
+    const productsCountBadge = document.querySelector('[data-key="products_count"]');
+
+    function renderProducts(lang){
+      productsGrid.innerHTML = '';
+      PRODUCTS.forEach(p=>{
+        const div = document.createElement('div');div.className='product card';
+        div.innerHTML = `
+          <img src="${p.image}" alt="${p.title[lang]}">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="title">${p.title[lang]}</div>
+              <div class="price">${p.price} €</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="btn" data-id="${p.id}">Voir</button>
+            <button class="btn secondary" data-buy="${p.id}">Acheter</button>
+          </div>`;
+        productsGrid.appendChild(div);
+      });
+    }
+
+    // Show product detail
+    function showProduct(id,lang){
+      const prod = PRODUCTS.find(x=>x.id==id);
+      if(!prod) return;
+      document.getElementById('product').style.display='block';
+      document.getElementById('products').scrollIntoView({behavior:'smooth'});
+      document.getElementById('productTitle').textContent = prod.title[lang];
+      document.getElementById('productPrice').textContent = prod.price + ' €';
+      document.getElementById('productDesc').textContent = prod.desc[lang];
+      document.getElementById('productImage').src = prod.image;
+      // hide products grid to focus
+      document.getElementById('products').style.display = 'none';
+    }
+
+    // Event listeners (delegation)
+    document.body.addEventListener('click', (e)=>{
+      const langBtn = e.target.closest('.lang-btn');
+      if(langBtn){ setLanguage(langBtn.dataset.lang); return; }
+
+      const seeBtn = e.target.closest('[data-id]');
+      if(seeBtn){ const id = seeBtn.dataset.id; showProduct(id,currentLang); return; }
+
+      const buyBtn = e.target.closest('[data-buy]');
+      if(buyBtn){ const id = buyBtn.dataset.buy; proceedToCheckout(id); return; }
+
+      if(e.target.id==='discoverBtn'){ document.querySelector('#about').scrollIntoView({behavior:'smooth'}); }
+      if(e.target.id==='backToProducts'){ document.getElementById('product').style.display='none'; document.getElementById('products').style.display='block'; }
+      if(e.target.id==='buyNow'){ const title = document.getElementById('productTitle').textContent; alert(title + ' — Preparing checkout'); proceedToCheckout(); }
+      if(e.target.id==='cancelCheckout'){ document.getElementById('checkout').style.display='none'; document.getElementById('products').style.display='block'; }
+    });
+
+    // Checkout flow
+    function proceedToCheckout(productId){
+      const pid = productId || null;
+      if(pid){
+        const p = PRODUCTS.find(x=>x.id==pid);
+        document.getElementById('custAddress').placeholder = 'Commande: '+p.title[currentLang] + ' — ' + p.price + ' €';
+      }
+      document.getElementById('checkout').style.display='block';
+      document.getElementById('product').style.display='none';
+      document.getElementById('products').style.display='none';
+      document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      alert('Commande reçue — merci ! (Demo)');
+      // reset demo
+      document.getElementById('checkout').style.display='none';
+      document.getElementById('products').style.display='block';
+    });
+
+    // Language switcher
+    let currentLang = 'fr';
+    function setLanguage(lang){
+      currentLang = lang;
+      // direction
+      if(lang==='ar'){ document.documentElement.setAttribute('dir','rtl'); } else { document.documentElement.setAttribute('dir','ltr'); }
+      // text replacements
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if(STRINGS[lang] && STRINGS[lang][key]){
+          el.textContent = STRINGS[lang][key];
+        }
+      });
+      // nav links
+      document.querySelectorAll('.navlink').forEach(n=>{
+        const key = n.getAttribute('data-key');
+        if(STRINGS[lang] && STRINGS[lang][key]) n.textContent = STRINGS[lang][key];
+      });
+      // product list
+      renderProducts(lang);
+      // update count badge
+      productsCountBadge.textContent = STRINGS[lang].products_count;
+    }
+
+    // init
+    setLanguage(currentLang);
+
+  </script>
+</body>
+</html>
